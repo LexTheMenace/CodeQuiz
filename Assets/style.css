@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+justify-content: center;
+background: grey;
+
+}
+
+h1{ 
+display: flex;
+justify-content: center;
+font-size: 72px;
+background: black;
+color:grey;
+margin: 0px;
+width: 100%
+}
+
+#btn {
+color:white;
+    padding: 20px;
+    border: 5px solid black;
+    background-color: blueviolet;
+margin: 50px;
+}
+
+.btn:hover {
+background-color: blue;
+}
+
+p {
+    margin:50px;
+text-align: center;
+}
+#quiz {
+    display: none;
+}
+
+#answer {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.button{
+    margin: 20px;
+    display: flex;
+}
+
+#timer {
+font-size: 36px;
+}
+
+#question {
+    font-size: 36px;
+    text-align: center;
+}
