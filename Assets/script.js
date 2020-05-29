@@ -17,11 +17,21 @@ var questions = {
     a: 2
 };
 
+secondsLeft = 60
 function gameStart(e) {
     // Hide Start screen and 
 startPage.style.display = "none";
 //Show first Question
 game.style.display = "block";
+timer.textContent = secondsLeft;
+
+
+setInterval(function timer(){
+if (secondsLeft > 0){
+    secondsLeft--;
+    
+}
+},1000)
 nextQ();
 }
 
@@ -34,13 +44,13 @@ function verify(e){
     if (target.className === "button"){
         var id = parseInt(target.getAttribute("id"))
         console.log(target);
-    }
-    if (id === questions.a) {
-        score++;
-        
-    }else {
-        timer-5;
-    }
+    
+        if (id === questions.a) {
+            score++;
+            
+        }else if (id != questions.a) {
+            secondsLeft = 5;
+    } }
     page++;
     document.getElementById("score").textContent = ("Score: " + score);
 }
@@ -63,6 +73,7 @@ question.textContent = questions.q
     answer.appendChild(option);
     i++;
 })}
+
 
 
 
