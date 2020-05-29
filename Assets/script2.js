@@ -5,7 +5,6 @@ var quiz = document.getElementById("quiz")
 var timer = document.getElementById("timer")
 var question = document.getElementById("question");
 var answer = document.getElementById("answer");
-var clear = document.getElementById("reset")
   var questions = [{
         q: "What is Javascript?",
         options: [
@@ -35,36 +34,129 @@ var clear = document.getElementById("reset")
             "C--",
         ],
         a: 3
+    },
+    {
+        q: "Which of the following is NOT a programming language?",
+        options: [
+            "Java",
+            "Python",
+            "C++",
+            "C--",
+        ],
+        a: 3
+    },
+    {
+        q: "Which of the following is NOT a programming language?",
+        options: [
+            "Java",
+            "Python",
+            "C++",
+            "C--",
+        ],
+        a: 3
+    },
+    {
+        q: "Which of the following is NOT a programming language?",
+        options: [
+            "Java",
+            "Python",
+            "C++",
+            "C--",
+        ],
+        a: 3
+    },
+    {
+        q: "Which of the following is NOT a programming language?",
+        options: [
+            "Java",
+            "Python",
+            "C++",
+            "C--",
+        ],
+        a: 3
+    },
+    {
+        q: "Which of the following is NOT a programming language?",
+        options: [
+            "Java",
+            "Python",
+            "C++",
+            "C--",
+        ],
+        a: 3
+    },
+    {
+        q: "Which of the following is NOT a programming language?",
+        options: [
+            "Java",
+            "Python",
+            "C++",
+            "C--",
+        ],
+        a: 3
+    },
+    {
+        q: "Which of the following is NOT a programming language?",
+        options: [
+            "Java",
+            "Python",
+            "C++",
+            "C--",
+        ],
+        a: 3
     }
-
-
-
-
-
-
 ];
+
+// Game end variable 
+function gameOver(){
+
+    var score = document.getElementById("score");
+    var highscore = localStorage.getItem("highscore");
+    
+    quiz.style.display = "none";
+                document.getElementById("score").style.display = "block"
+                score.textContent = ("Your score is: " + secondsLeft + " !");
+                //Save Score to Local Storage
+    
+    if(highscore !== null){
+        if (secondsLeft > highscore) {
+            localStorage.setItem("highscore", secondsLeft);      
+        }
+    }
+    else{
+        localStorage.setItem("highscore", secondsLeft);
+    }
+            
+    
+    }
+    
+
+
 
 
 //present a question
 
 //if wrong subtract 5 secs from clock
 
-// game end when questions finished or timer reaches 0
+
 //save initials and score to local storage
 
 
 function displayQuiz(){
     startPage.style.display = "none";
     quiz.style.display = "block";
-       var i = 0;
-        page = 0;
-
+       
+    page = 0;
+    slides();
 //Question text
-questions.forEach(function() {
+
+function slides(){
+        console.log(page)
+    
     question.textContent = questions[page].q
-        })
+    var i = 0
         questions[page].options.forEach(function(choice, index) {
-//Generate Answer as buttons
+    //Generate Answer as buttons
 
         var option = document.createElement("button");
         option.setAttribute("class", "button");
@@ -74,31 +166,37 @@ questions.forEach(function() {
         i++;
 
 
-});
+})};
+// Check if answer is correct
 
-function verify(e){
-        var target = e.target;
+    function verify(e){
+            var target = e.target;
+            
+            if (target.className === "button"){
+                var id = parseInt(target.getAttribute("id"))
+                console.log(target);
+            
+                if (id === questions[page].a) {
+                console.log('correct')
+                }else if (id != questions[page].a) {
+                    secondsLeft = secondsLeft - 5;
+                    timer.textContent = secondsLeft
+            }   else {
+                return
+            }
+        }page++;
         
-        if (target.className === "button"){
-            var id = parseInt(target.getAttribute("id"))
-            console.log(target);
-        
-            if (id === questions[page].a) {
-                console.log("correct")
-            }else if (id != questions[page].a) {
-                secondsLeft = secondsLeft - 5;
-        } }
-        clear = ""
-        page++;
-        return(page)
-    }
+        // game end when questions finished or timer reaches 0
+        if (page === questions.length || secondsLeft <= 0 ){
+           gameOver();
+        }else{
+            answer.textContent = " "
+      //Next Question
+            slides();   
 
-  answer.addEventListener("click", verify);
-
-
+        }}  
+    answer.addEventListener("click", verify);
 }
-  
-
 
 
 //timer start
@@ -108,14 +206,16 @@ function verify(e){
         var interval = setInterval(secondTimer, 1000);
 
         function secondTimer(){
-            if (secondsLeft <= 0) {
-                alert("TIME'S UP!");
+            if (secondsLeft <= 0 || page === page.length) {
                 clearInterval(interval);
-                return
+                gameOver()
+         return(secondsLeft)
           }  
           secondsLeft --; 
           timer.textContent = secondsLeft;
-        }};
+        }
+    
+    };
 
 
 
