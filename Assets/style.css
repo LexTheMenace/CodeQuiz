@@ -15,7 +15,7 @@ margin: 0px;
 width: 100%
 }
 
-#btn {
+#startBtn {
 color:white;
     padding: 20px;
     border: 5px solid black;
@@ -23,7 +23,7 @@ color:white;
 margin: 50px;
 }
 
-.btn:hover {
+.startBtn:hover {
 background-color: blue;
 }
 
