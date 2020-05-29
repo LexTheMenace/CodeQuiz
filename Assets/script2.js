@@ -28,7 +28,7 @@ var answer = document.getElementById("answer");
     {
         q: "Which of the following is NOT a programming language?",
         options: [
-            "Java",
+            "Javascript",
             "Python",
             "C++",
             "C--",
@@ -36,75 +36,53 @@ var answer = document.getElementById("answer");
         a: 3
     },
     {
-        q: "Which of the following is NOT a programming language?",
+        q: "What tag adds Javascript to HTML?",
         options: [
-            "Java",
-            "Python",
-            "C++",
-            "C--",
+            "java",
+            "script",
+            "javascript",
+            "scriptmate",
+        ],
+        a: 1
+    },
+    {
+        q: "What values do booleans represent?",
+        options: [
+            "Numbers",
+            "Strings",
+            "True/False",
+            "Arrays",
         ],
         a: 3
     },
     {
-        q: "Which of the following is NOT a programming language?",
+        q: "Objects are variables.",
         options: [
-            "Java",
-            "Python",
-            "C++",
-            "C--",
+            "True",
+            "False",
         ],
-        a: 3
+        a: 0
     },
     {
-        q: "Which of the following is NOT a programming language?",
+        q: "Which of the following is equivalent to i = i - 1",
         options: [
-            "Java",
-            "Python",
-            "C++",
-            "C--",
+            "i",
+            "i = 1-",
+            "i - -",
+            "num-1",
         ],
-        a: 3
+        a: 2
     },
     {
-        q: "Which of the following is NOT a programming language?",
+        q: "Which symbols contain arrays?",
         options: [
-            "Java",
-            "Python",
-            "C++",
-            "C--",
+            "{ }",
+            "[ ]",
+            "( )",
+            "< >",
         ],
-        a: 3
+        a: 1
     },
-    {
-        q: "Which of the following is NOT a programming language?",
-        options: [
-            "Java",
-            "Python",
-            "C++",
-            "C--",
-        ],
-        a: 3
-    },
-    {
-        q: "Which of the following is NOT a programming language?",
-        options: [
-            "Java",
-            "Python",
-            "C++",
-            "C--",
-        ],
-        a: 3
-    },
-    {
-        q: "Which of the following is NOT a programming language?",
-        options: [
-            "Java",
-            "Python",
-            "C++",
-            "C--",
-        ],
-        a: 3
-    }
 ];
 
 // Game end variable 
@@ -120,6 +98,7 @@ function gameOver(){
     
     if(highscore !== null){
         if (secondsLeft > highscore) {
+            //save initials and score to local storage
             localStorage.setItem("highscore", secondsLeft);      
         }
     }
@@ -129,17 +108,8 @@ function gameOver(){
             
     
     }
-    
+ 
 
-
-
-
-//present a question
-
-//if wrong subtract 5 secs from clock
-
-
-//save initials and score to local storage
 
 
 function displayQuiz(){
@@ -152,7 +122,7 @@ function displayQuiz(){
 
 function slides(){
         console.log(page)
-    
+    //present a question
     question.textContent = questions[page].q
     var i = 0
         questions[page].options.forEach(function(choice, index) {
@@ -179,6 +149,7 @@ function slides(){
                 if (id === questions[page].a) {
                 console.log('correct')
                 }else if (id != questions[page].a) {
+                    //if wrong subtract 5 secs from clock
                     secondsLeft = secondsLeft - 5;
                     timer.textContent = secondsLeft
             }   else {
