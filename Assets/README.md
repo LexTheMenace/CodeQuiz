@@ -6,7 +6,7 @@ Homework #4
 No installation necessary.
 
 ## Image
-
+![CODE QUIZ SCREENSHOT](https://raw.githubusercontent.com/LexTheMenace/CodeQuiz/master/Assets/images/Screenshot%20(57).png)
 
 ## Usage
 
