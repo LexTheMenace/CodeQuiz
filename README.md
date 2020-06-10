@@ -1,9 +1,10 @@
 # CodeQuiz
 Homework #4
 
-## Installation
+## Links
+Repository: https://github.com/LexTheMenace/CodeQuiz
+Live Site: https://lexthemenace.github.io/CodeQuiz/
 
-No installation necessary.
 
 ## Image
 ![CODE QUIZ SCREENSHOT](https://raw.githubusercontent.com/LexTheMenace/CodeQuiz/master/Assets/images/Screenshot%20(57).png)
